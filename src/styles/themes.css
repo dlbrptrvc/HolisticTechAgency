@@ -1,0 +1,44 @@
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Theme CSS Constants */
+
+/* Default Light Theme */
+:root {
+  color-scheme: light dark;
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --font-primary: 'Helvetica Neue', sans-serif;
+  --font-heading: 'Helvetica', sans-serif;
+}
+
+/* Dark Theme - Applied immediately */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+  }
+}
+
+/* Prevent flash by setting body background immediately */
+body {
+  background-color: var(--bg-color);
+}
+
+/* App Styles */
+.app {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  font-family: var(--font-primary);
+}

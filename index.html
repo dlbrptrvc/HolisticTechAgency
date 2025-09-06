@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Holistic Tech Agency</title>
+  <style>
+    /* Inline critical styles to prevent FOUC */
+    :root {
+      color-scheme: light dark;
+    }
+    
+    html {
+      background-color: #ffffff;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      html {
+        background-color: #000000;
+      }
+    }
+  </style>
+  <script>
+    // Prevent FOUC by setting theme immediately
+    (function() {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const bgColor = prefersDark ? '#000000' : '#ffffff';
+      const textColor = prefersDark ? '#ffffff' : '#000000';
+      
+      document.documentElement.style.setProperty('--bg-color', bgColor);
+      document.documentElement.style.setProperty('--text-color', textColor);
+      document.documentElement.style.backgroundColor = bgColor;
+      document.body.style.backgroundColor = bgColor;
+      document.body.style.color = textColor;
+    })();
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="./src/main.jsx"></script>
+</body>
+</html>

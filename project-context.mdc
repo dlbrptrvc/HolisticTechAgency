@@ -1,0 +1,34 @@
+# HolisticTechAgency Project Context
+
+## Project Overview
+A React-based webpage for HolisticTechAgency built with Vite.
+
+## Project Structure
+```
+src/
+├─ App.jsx          # Main application component
+├─ main.jsx         # Application entry point
+└─ styles/
+   └─ themes.css    # CSS theme constants and styles
+```
+
+## Key Components
+- App.jsx: Main application component with CSS-based theme styling
+- main.jsx: Application entry point that imports CSS and renders App
+- themes.css: CSS file with theme constants and media queries for light/dark themes
+- index.html: HTML template with inline FOUC prevention styles and script
+
+## Key Variables and Methods
+- CSS Custom Properties: --bg-color, --text-color, --font-primary, --font-heading
+- Media Query: @media (prefers-color-scheme: dark) for automatic theme detection
+
+## CSS Theme Constants
+- --bg-color: Background color (white for light theme, black for dark theme)
+- --text-color: Text color (black for light theme, white for dark theme)
+- --font-primary: Primary font family (Helvetica Neue, sans-serif)
+- --font-heading: Heading font family (Helvetica, sans-serif)
+
+## Notes
+- Minimal design approach - functionality first
+- No styling other than layout and size purposes
+- Test after each step by running the app
