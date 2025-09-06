@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Holistic Tech Agency</title>
+  
+  <!-- Responsive Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/src/assets/icons/favicon-light.svg" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/svg+xml" href="/src/assets/icons/favicon-dark.svg" media="(prefers-color-scheme: dark)" />
+  
   <style>
     /* Inline critical styles to prevent FOUC */
     :root {
@@ -26,12 +31,19 @@
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const bgColor = prefersDark ? '#000000' : '#ffffff';
       const textColor = prefersDark ? '#ffffff' : '#000000';
+      const faviconPath = prefersDark ? '/src/assets/icons/favicon-dark.svg' : '/src/assets/icons/favicon-light.svg';
       
       document.documentElement.style.setProperty('--bg-color', bgColor);
       document.documentElement.style.setProperty('--text-color', textColor);
       document.documentElement.style.backgroundColor = bgColor;
       document.body.style.backgroundColor = bgColor;
       document.body.style.color = textColor;
+      
+      // Set favicon immediately
+      const favicon = document.querySelector('link[rel="icon"]');
+      if (favicon) {
+        favicon.href = faviconPath;
+      }
     })();
   </script>
 </head>

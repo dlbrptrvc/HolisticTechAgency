@@ -8,6 +8,10 @@ A React-based webpage for HolisticTechAgency built with Vite.
 src/
 ├─ App.jsx          # Main application component
 ├─ main.jsx         # Application entry point
+├─ assets/
+│  └─ icons/
+│     ├─ favicon-light.svg
+│     └─ favicon-dark.svg
 └─ styles/
    └─ themes.css    # CSS theme constants and styles
 ```
@@ -16,7 +20,9 @@ src/
 - App.jsx: Main application component with CSS-based theme styling
 - main.jsx: Application entry point that imports CSS and renders App
 - themes.css: CSS file with theme constants and media queries for light/dark themes
-- index.html: HTML template with inline FOUC prevention styles and script
+- index.html: HTML template with inline FOUC prevention styles, script, and responsive favicons
+- favicon-light.svg: Light theme favicon
+- favicon-dark.svg: Dark theme favicon
 
 ## Key Variables and Methods
 - CSS Custom Properties: --bg-color, --text-color, --font-primary, --font-heading
