@@ -1,0 +1,9 @@
+/* Header Component Styles */
+
+.header {
+  text-align: center;
+  padding: 1rem;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-xl);
+  font-weight: normal;
+}

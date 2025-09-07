@@ -1,0 +1,23 @@
+/* App Component Styles */
+
+.app {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  font-family: var(--font-primary);
+  width: 66%;
+  margin: 0 auto;
+}
+
+/* Mobile responsive scaling */
+@media (max-width: 768px) {
+  .app {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    width: 95%;
+  }
+}

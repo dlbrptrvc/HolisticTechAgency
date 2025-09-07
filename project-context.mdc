@@ -8,6 +8,8 @@ A React-based webpage for HolisticTechAgency built with Vite.
 src/
 ├─ App.jsx          # Main application component
 ├─ main.jsx         # Application entry point
+├─ components/
+│  └─ Header.jsx    # Header component with styled first letters
 ├─ assets/
 │  └─ icons/
 │     ├─ favicon-light.svg
@@ -19,14 +21,18 @@ src/
 ## Key Components
 - App.jsx: Main application component with CSS-based theme styling
 - main.jsx: Application entry point that imports CSS and renders App
-- themes.css: CSS file with theme constants and media queries for light/dark themes
+- Header.jsx: Header component displaying "HOLISTIC TECH AGENCY" with styled first letters
+- themes.css: CSS file with theme constants, color palette, and media queries for light/dark themes
 - index.html: HTML template with inline FOUC prevention styles, script, and responsive favicons
 - favicon-light.svg: Light theme favicon
 - favicon-dark.svg: Dark theme favicon
 
 ## Key Variables and Methods
 - CSS Custom Properties: --bg-color, --text-color, --font-primary, --font-heading
+- Color Palette: --color-primary (#923a26), --color-secondary (#eccd0f), --color-tertiary (#dbc8a0), --color-accent (#e07e00)
+- Inverted Colors: --color-primary-invert (#6dc5d9), --color-secondary-invert (#1332f0), --color-tertiary-invert (#24375f), --color-accent-invert (#1f81ff)
 - Media Query: @media (prefers-color-scheme: dark) for automatic theme detection
+- Header Component: Displays "HOLISTIC TECH AGENCY" with first letters styled in different colors
 
 ## CSS Theme Constants
 - --bg-color: Background color (white for light theme, black for dark theme)

@@ -1,0 +1,60 @@
+/* Global Reset and Constants */
+
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Theme CSS Constants */
+:root {
+  color-scheme: light dark;
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --font-primary: 'Helvetica Neue', sans-serif;
+  
+  /* Font Size Constants */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 1rem;
+  --font-size-md: 1.5rem;
+  --font-size-lg: 2rem;
+  --font-size-xl: 3rem;
+  
+  /* Color Palette */
+  --color-primary: #923a26;
+  --color-secondary: #eccd0f;
+  --color-tertiary: #dbc8a0;
+  --color-accent: #e07e00;
+  
+  /* Inverted Colors for Light Theme */
+  --color-primary-invert: #6dc5d9;
+  --color-secondary-invert: #1332f0;
+  --color-tertiary-invert: #24375f;
+  --color-accent-invert: #1f81ff;
+}
+
+/* Dark Theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    
+    /* Use original colors for dark theme */
+    --color-primary: #923a26;
+    --color-secondary: #eccd0f;
+    --color-tertiary: #dbc8a0;
+    --color-accent: #e07e00;
+  }
+}
+
+/* Prevent flash by setting body background immediately */
+body {
+  background-color: var(--bg-color);
+}
