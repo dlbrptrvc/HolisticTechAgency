@@ -1,9 +1,29 @@
 /* Header Component Styles */
 
 .header {
-  text-align: center;
+  text-align: left;
   padding: 1rem;
   font-family: var(--font-primary);
   font-size: var(--font-size-xl);
   font-weight: normal;
+  display: flex;
+  gap: 1rem;
+}
+
+/* Font Test Classes */
+.header-aovel {
+  font-family: var(--font-aovel);
+}
+
+.header-lowvetica {
+  font-family: var(--font-lowvetica);
+}
+
+/* Mobile responsive font size and layout */
+@media (max-width: 768px) {
+  .header {
+    font-size: var(--font-size-lg);
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }

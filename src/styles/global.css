@@ -1,5 +1,20 @@
 /* Global Reset and Constants */
 
+/* Custom Font Faces */
+@font-face {
+  font-family: 'Aovel Sans Light';
+  src: url('../assets/fonts/AovelSans-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lowvetica';
+  src: url('../assets/fonts/Lowvetica-BAMw.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Reset default browser styles */
 * {
   margin: 0;
@@ -19,6 +34,8 @@ html, body {
   --bg-color: #ffffff;
   --text-color: #000000;
   --font-primary: 'Helvetica Neue', sans-serif;
+  --font-aovel: 'Aovel Sans Light', sans-serif;
+  --font-lowvetica: 'Lowvetica', sans-serif;
   
   /* Font Size Constants */
   --font-size-xs: 0.75rem;
