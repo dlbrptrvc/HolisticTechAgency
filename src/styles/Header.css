@@ -2,7 +2,10 @@
 
 .header {
   text-align: left;
-  padding: 1rem;
+  padding-left: var(--spacing-left-padding);
+  padding-top: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
   font-family: var(--font-primary);
   font-size: var(--font-size-xl);
   font-weight: normal;

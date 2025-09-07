@@ -1,46 +1,77 @@
 # HolisticTechAgency Project Context
 
 ## Project Overview
-A React-based webpage for HolisticTechAgency built with Vite.
-
+A React-based webpage for HolisticTechAgency built with Vite. Features responsive design with mobile-first navigation and image carousel.i56./
 ## Project Structure
 ```
 src/
-├─ App.jsx          # Main application component
-├─ main.jsx         # Application entry point
+├─ App.jsx              # Main application component
+├─ main.jsx             # Application entry point
 ├─ components/
-│  └─ Header.jsx    # Header component with styled first letters
+│  ├─ Header.jsx        # Header component with responsive text layout
+│  ├─ Navigation.jsx    # Navigation with burger menu for mobile
+│  └─ Carousel.jsx      # Image carousel with fade transitions
 ├─ assets/
+│  ├─ fonts/
+│  │  ├─ AovelSans-Light.otf
+│  │  └─ Lowvetica-BAMw.ttf
 │  └─ icons/
 │     ├─ favicon-light.svg
 │     └─ favicon-dark.svg
-└─ styles/
-   └─ themes.css    # CSS theme constants and styles
+├─ styles/
+│  ├─ global.css        # Global constants, fonts, and utility classes
+│  ├─ Header.css        # Header component styles
+│  ├─ Navigation.css    # Navigation component styles
+│  └─ Carousel.css      # Carousel component styles
+└─ public/
+   ├─ primary_carousel.jpg
+   ├─ secondary_carousel.jpg
+   ├─ tertiary_carousel.jpg
+   └─ accent_carousel.jpg
 ```
 
 ## Key Components
-- App.jsx: Main application component with CSS-based theme styling
-- main.jsx: Application entry point that imports CSS and renders App
-- Header.jsx: Header component displaying "HOLISTIC TECH AGENCY" with styled first letters
-- themes.css: CSS file with theme constants, color palette, and media queries for light/dark themes
-- index.html: HTML template with inline FOUC prevention styles, script, and responsive favicons
-- favicon-light.svg: Light theme favicon
-- favicon-dark.svg: Dark theme favicon
+- App.jsx: Main application component that renders Header, Navigation, and Carousel
+- Header.jsx: Responsive header with "HOLISTIC TECH AGENCY" text, mobile word stacking
+- Navigation.jsx: Desktop horizontal nav + mobile burger menu with "E"/"X" toggle
+- Carousel.jsx: Image carousel with auto-advance, fade transitions, and dot navigation
+- global.css: CSS constants, font faces, color palette, and utility classes
+- Header.css: Header-specific styles with responsive font sizing
+- Navigation.css: Navigation styles with mobile burger menu positioning
+- Carousel.css: Carousel styles with full-width layout and fade transitions
 
 ## Key Variables and Methods
-- CSS Custom Properties: --bg-color, --text-color, --font-primary, --font-heading
-- Color Palette: --color-primary (#923a26), --color-secondary (#eccd0f), --color-tertiary (#dbc8a0), --color-accent (#e07e00)
-- Inverted Colors: --color-primary-invert (#6dc5d9), --color-secondary-invert (#1332f0), --color-tertiary-invert (#24375f), --color-accent-invert (#1f81ff)
-- Media Query: @media (prefers-color-scheme: dark) for automatic theme detection
-- Header Component: Displays "HOLISTIC TECH AGENCY" with first letters styled in different colors
 
-## CSS Theme Constants
-- --bg-color: Background color (white for light theme, black for dark theme)
-- --text-color: Text color (black for light theme, white for dark theme)
-- --font-primary: Primary font family (Helvetica Neue, sans-serif)
-- --font-heading: Heading font family (Helvetica, sans-serif)
+### CSS Custom Properties
+- **Theme Colors**: --bg-color, --text-color
+- **Font Families**: --font-primary (Helvetica Neue), --font-aovel (Aovel Sans Light), --font-lowvetica (Lowvetica)
+- **Font Sizes**: --font-size-xs (0.75rem), --font-size-sm (1rem), --font-size-md (1.5rem), --font-size-lg (2rem), --font-size-xl (3rem)
+- **Spacing**: --spacing-left-padding (1rem)
+- **Opacity**: --opacity-hover (0.7), --opacity-active (1)
+
+### Color Palette
+- **Primary**: --color-primary (#923a26 - reddish brown)
+- **Secondary**: --color-secondary (#eccd0f - yellow)
+- **Tertiary**: --color-tertiary (#dbc8a0 - beige)
+- **Accent**: --color-accent (#e07e00 - orange)
+- **Inverted Colors**: --color-primary-invert (#6dc5d9), --color-secondary-invert (#1332f0), --color-tertiary-invert (#24375f), --color-accent-invert (#1f81ff)
+
+### Component Methods
+- **Header**: Responsive text layout with mobile word stacking, left alignment
+- **Navigation**: Desktop horizontal menu + mobile burger menu with "E"/"X" toggle, top-right positioning
+- **Carousel**: Auto-advance every 8 seconds, fade transitions, dot navigation, full-width images
+
+### Utility Classes
+- **unselectable**: Prevents text selection across all browsers
+
+## External Resources
+- **Image Generator**: `/home/dlbrptrvc/repos/temp/carousel_image_generator.py` - Python script to generate colored carousel images
+- **Generated Images**: 4 carousel images (1920x600px) with subtle gradients using color palette
 
 ## Notes
 - Minimal design approach - functionality first
 - No styling other than layout and size purposes
+- Responsive design with mobile-first approach
+- All text elements use `unselectable` class to prevent selection
+- Consistent spacing using CSS constants
 - Test after each step by running the app

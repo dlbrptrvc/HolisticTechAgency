@@ -4,13 +4,14 @@ import '../styles/Header.css';
 const Header = () => {
   return (
     <div>
-      <header className="header header-aovel">
+      <header className="header header-aovel unselectable">
         <span className="header-word">HOLISTIC</span>
         <span className="header-word">TECH</span>
         <span className="header-word">AGENCY</span>
       </header>
     </div>
   );
+  
 };
 
 export default Header;

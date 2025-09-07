@@ -44,6 +44,13 @@ html, body {
   --font-size-lg: 2rem;
   --font-size-xl: 3rem;
   
+  /* Spacing Constants */
+  --spacing-left-padding: 1rem;
+  
+  /* Opacity Constants */
+  --opacity-hover: 0.7;
+  --opacity-active: 1;
+  
   /* Color Palette */
   --color-primary: #923a26;
   --color-secondary: #eccd0f;
@@ -74,4 +81,12 @@ html, body {
 /* Prevent flash by setting body background immediately */
 body {
   background-color: var(--bg-color);
+}
+
+/* Utility Classes */
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
