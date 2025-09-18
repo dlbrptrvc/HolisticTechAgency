@@ -1,0 +1,74 @@
+/* Content Component Styles - Typography Only */
+
+.content-section {
+  padding: 2rem var(--spacing-left-padding);
+}
+
+.content-title {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-xl);
+  margin-bottom: 2rem;
+}
+
+.content-intro {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-sm);
+  margin-bottom: 2rem;
+}
+
+.content-heading {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-lg);
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.content-heading:first-child {
+  margin-top: 0;
+}
+
+.content-text {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-sm);
+  margin-bottom: 1.5rem;
+}
+
+.content-text:last-child {
+  margin-bottom: 0;
+}
+
+.newspaper-image {
+  float: right;
+  width: 200px;
+  margin: 0 0 1rem 1rem;
+  text-align: center;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.footnote {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-xs);
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+/* Mobile responsive font sizes */
+@media (max-width: 768px) {
+  .content-title {
+    font-size: var(--font-size-lg);
+  }
+  
+  .content-heading {
+    font-size: var(--font-size-md);
+  }
+  
+  .newspaper-image {
+    float: none;
+    width: 100%;
+    margin: 1rem 0;
+  }
+}
