@@ -1,7 +1,18 @@
 /* Content Component Styles - Typography Only */
 
+
+.newspaper-image {
+    float: right;
+    width: 250px;
+    margin: 0.5rem;
+    text-align: left;
+    position: relative;
+    padding: 0.5rem;
+  }
+
 .content-section {
   padding: 2rem var(--spacing-left-padding);
+  position: relative; /* Needed for absolute positioning of image */
 }
 
 .content-title {
@@ -14,39 +25,37 @@
   font-family: var(--font-primary);
   font-size: var(--font-size-sm);
   margin-bottom: 2rem;
+  text-align: justify; /* Better text wrapping around floated elements */
 }
 
 .content-heading {
   font-family: var(--font-primary);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-md);
   margin-bottom: 1rem;
   margin-top: 2rem;
-}
-
-.content-heading:first-child {
-  margin-top: 0;
 }
 
 .content-text {
   font-family: var(--font-primary);
   font-size: var(--font-size-sm);
   margin-bottom: 1.5rem;
+  text-align: justify; /* Better text wrapping around floated elements */
 }
 
 .content-text:last-child {
   margin-bottom: 0;
 }
 
-.newspaper-image {
-  float: right;
-  width: 200px;
-  margin: 0 0 1rem 1rem;
-  text-align: center;
-}
+
 
 .image {
   width: 100%;
   height: auto;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
 }
 
 .footnote {

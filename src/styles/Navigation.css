@@ -44,13 +44,18 @@
   text-decoration: none;
   color: var(--text-color);
   font-family: 'Helvetica Neue', sans-serif;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-md);
   font-weight: normal;
   transition: opacity 0.3s ease;
 }
 
 .nav-list li a:hover {
   opacity: var(--opacity-hover);
+}
+
+.nav-list li a.active {
+  text-decoration: underline;
+  opacity: var(--opacity-active);
 }
 
 /* Mobile Styles */

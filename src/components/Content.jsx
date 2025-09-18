@@ -27,7 +27,7 @@ const Content = ({ section }) => {
   const contentData = getContent(section);
 
   return (
-    <section className="content-section">
+    <section className="content-section unselectable">
       <div>
         <h2 className="content-title">{contentData.title}</h2>
         
