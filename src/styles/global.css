@@ -15,6 +15,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Aovel Sans Light TTF';
+  src: url('../assets/fonts/AovelSansLight-BYlw.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
 /* Reset default browser styles */
 * {
   margin: 0;
@@ -26,6 +33,9 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 /* Theme CSS Constants */
@@ -35,6 +45,7 @@ html, body {
   --text-color: #000000;
   --font-primary: 'Helvetica Neue', sans-serif;
   --font-aovel: 'Aovel Sans Light', sans-serif;
+  --font-aovel-ttf: 'Aovel Sans Light TTF', sans-serif;
   --font-lowvetica: 'Lowvetica', sans-serif;
   
   /* Font Size Constants */
@@ -43,6 +54,10 @@ html, body {
   --font-size-md: 1.5rem;
   --font-size-lg: 2rem;
   --font-size-xl: 3rem;
+  
+  /* Font Weight Constants */
+  --font-weight-normal: normal;
+  --font-weight-bold: bold;
   
   /* Spacing Constants */
   --spacing-left-padding: 1rem;
@@ -56,6 +71,7 @@ html, body {
   --color-secondary: #eccd0f;
   --color-tertiary: #dbc8a0;
   --color-accent: #e07e00;
+  --color-gray: #666666;
   
   /* Inverted Colors for Light Theme */
   --color-primary-invert: #6dc5d9;

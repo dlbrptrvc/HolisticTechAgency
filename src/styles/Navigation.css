@@ -1,9 +1,11 @@
 /* Navigation Component Styles */
 
+.navigation-wrapper {
+  background: var(--bg-color);
+}
+
 .navigation {
-  position: relative;
-  padding-left: var(--spacing-left-padding);
-  padding-bottom: 1rem;
+  background: var(--bg-color);
 }
 
 /* Burger Menu Button */
@@ -27,36 +29,98 @@
   font-weight: normal;
 }
 
-/* Navigation Menu */
 .nav-menu {
   display: flex;
+  margin-bottom: 0.5rem;
 }
 
 .nav-list {
+  margin-left: var(--spacing-left-padding);
   display: flex;
   list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 2rem;
+  width: 100%;
+  gap: 10px;
+}
+
+.nav-list li {
+  width: 100px;
+  text-align: center;
 }
 
 .nav-list li a {
-  text-decoration: none;
   color: var(--text-color);
-  font-family: 'Helvetica Neue', sans-serif;
-  font-size: var(--font-size-md);
-  font-weight: normal;
-  transition: opacity 0.3s ease;
+  font-family: 'Helvetica', sans-serif;
+  font-size: var(--font-size-sm);
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.nav-list li a:hover {
-  opacity: var(--opacity-hover);
-}
+  .nav-list li:nth-child(1) a.active {
+    background-color: var(--color-secondary);
+    color: white;
+  }
 
-.nav-list li a.active {
-  text-decoration: underline;
-  opacity: var(--opacity-active);
-}
+  .nav-list li:nth-child(2) a.active {
+    background-color: var(--color-tertiary);
+    color: white;
+  }
+
+  .nav-list li:nth-child(3) a.active {
+    background-color: var(--color-accent);
+    color: white;
+  }
+
+  .nav-list li:nth-child(4) a.active {
+    background-color: var(--color-primary);
+    color: white;
+  }
+
+  .nav-list li:nth-child(5) a.active {
+    background-color: var(--color-tertiary);
+    color: white;
+  }
+
+  /* Dark mode active states with inverted text color */
+  @media (prefers-color-scheme: dark) {
+    .nav-list li:nth-child(1) a.active {
+      background-color: var(--color-secondary);
+      color: black;
+    }
+
+    .nav-list li:nth-child(2) a.active {
+      background-color: var(--color-tertiary);
+      color: black;
+    }
+
+    .nav-list li:nth-child(3) a.active {
+      background-color: var(--color-accent);
+      color: black;
+    }
+
+    .nav-list li:nth-child(4) a.active {
+      background-color: var(--color-primary);
+      color: black;
+    }
+
+    .nav-list li:nth-child(5) a.active {
+      background-color: var(--color-tertiary);
+      color: black;
+    }
+  }
+
+
 
 /* Mobile Styles */
 @media (max-width: 768px) {
@@ -70,33 +134,46 @@
 
   .nav-menu {
     position: fixed;
-    top: 0;
+    top: -100vh;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: transparent;
+    background: var(--bg-color);
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 1000;
+    transition: top 0.3s ease;
+    z-index: 999;
+    padding-top: 10rem;
   }
 
   .nav-menu.open {
-    opacity: 1;
-    visibility: visible;
+    top: 0;
   }
 
   .nav-list {
     flex-direction: column;
     align-items: center;
-    gap: 3rem;
+    gap: 1.5rem;
+    margin-left: 0;
+  }
+
+  .nav-list li {
+    width: 100%;
   }
 
   .nav-list li a {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-sm);
     color: var(--text-color);
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 0;
+  }
+
+  .nav-list li a.active {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding-left: calc(50vw - 50%);
+    padding-right: calc(50vw - 50%);
   }
 }

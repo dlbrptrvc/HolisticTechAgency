@@ -3,39 +3,44 @@ import '../styles/Carousel.css';
 
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const [mouseStart, setMouseStart] = useState(null);
+  const [mouseEnd, setMouseEnd] = useState(null);
+  const [isDragging, setIsDragging] = useState(false);
   
-  // Carousel slides using generated images
+  // Carousel slides using new photos
   const slides = [
     {
       id: 1,
-      image: '/primary_carousel.jpg',
-      name: 'Primary'
+      image: '/16355088121_ca168356a2_o.jpg',
+      name: 'Photo 1'
     },
     {
       id: 2,
-      image: '/secondary_carousel.jpg',
-      name: 'Secondary'
+      image: '/432512_b37afa825b_o.jpg',
+      name: 'Photo 2'
     },
     {
       id: 3,
-      image: '/tertiary_carousel.jpg',
-      name: 'Tertiary'
+      image: '/abstract-black-and-white-white-photography-city-urban-271384-pxhere.com.jpg',
+      name: 'Photo 3'
     },
     {
       id: 4,
-      image: '/accent_carousel.jpg',
-      name: 'Accent'
+      image: '/architecture-abstract-free-stock-photo-2929.jpg',
+      name: 'Photo 4'
     }
   ];
 
-  // Auto-advance slides every 8 seconds (slower)
+  // Auto-advance slides every 5 seconds, reset when manually changed
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 8000);
+    }, 5000);
 
     return () => clearInterval(timer);
-  }, [slides.length]);
+  }, [currentSlide]); // Reset timer when currentSlide changes
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
@@ -49,9 +54,75 @@ const Carousel = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
 
+  const handleTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }
+    if (isRightSwipe) {
+      setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    }
+  };
+
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setMouseEnd(null);
+    setMouseStart(e.clientX);
+    e.preventDefault();
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    setMouseEnd(e.clientX);
+  };
+
+  const handleMouseUp = () => {
+    if (!isDragging || !mouseStart || !mouseEnd) {
+      setIsDragging(false);
+      return;
+    }
+    
+    const distance = mouseStart - mouseEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }
+    if (isRightSwipe) {
+      setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    }
+    
+    setIsDragging(false);
+  };
+
   return (
     <div className="carousel unselectable">
-      <div className="carousel-container">
+      <div 
+        className="carousel-container"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
+        style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
+      >
         {slides.map((slide, index) => (
           <div 
             key={slide.id} 

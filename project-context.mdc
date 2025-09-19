@@ -1,53 +1,69 @@
 # HolisticTechAgency Project Context
 
 ## Project Overview
-A React-based webpage for HolisticTechAgency built with Vite. Features responsive design with mobile-first navigation and image carousel.i56./
+A React-based webpage for HolisticTechAgency built with Vite. Features responsive design with mobile-first navigation, swipeable image carousel, and newspaper-style content layout.
+
 ## Project Structure
 ```
 src/
-├─ App.jsx              # Main application component
+├─ App.jsx              # Main application component with navigation state management
 ├─ main.jsx             # Application entry point
 ├─ components/
-│  ├─ Header.jsx        # Header component with responsive text layout
-│  ├─ Navigation.jsx    # Navigation with burger menu for mobile
-│  └─ Carousel.jsx      # Image carousel with fade transitions
+│  ├─ Header.jsx        # Clickable header component with responsive text layout
+│  ├─ Navigation.jsx    # Navigation with burger menu for mobile, sticky positioning
+│  ├─ Carousel.jsx      # Swipeable image carousel with auto-advance and manual controls
+│  └─ Content.jsx       # Content component with newspaper-style image layout
+├─ content/
+│  ├─ About.json        # About section content with image and text sections
+│  ├─ Projects.json     # Projects section content
+│  ├─ Products.json     # Products section content
+│  ├─ Services.json     # Services section content
+│  └─ Contact.json       # Contact section content
 ├─ assets/
 │  ├─ fonts/
 │  │  ├─ AovelSans-Light.otf
+│  │  ├─ AovelSansLight-BYlw.ttf
 │  │  └─ Lowvetica-BAMw.ttf
 │  └─ icons/
 │     ├─ favicon-light.svg
-│     └─ favicon-dark.svg
+│     └─ favicon-light.svg
 ├─ styles/
-│  ├─ global.css        # Global constants, fonts, and utility classes
-│  ├─ Header.css        # Header component styles
-│  ├─ Navigation.css    # Navigation component styles
-│  └─ Carousel.css      # Carousel component styles
+│  ├─ global.css        # Global constants, fonts, dark mode, and utility classes
+│  ├─ App.css           # App container styles
+│  ├─ Header.css        # Header component styles with full-width mobile support
+│  ├─ Navigation.css    # Navigation component styles with sticky positioning and dark mode
+│  ├─ Carousel.css      # Carousel component styles with swipeable functionality
+│  └─ Content.css       # Content component styles with newspaper layout and drop cap
 └─ public/
-   ├─ primary_carousel.jpg
-   ├─ secondary_carousel.jpg
-   ├─ tertiary_carousel.jpg
-   └─ accent_carousel.jpg
+   ├─ about-image.jpeg
+   ├─ 16355088121_ca168356a2_o.jpg
+   ├─ 432512_b37afa825b_o.jpg
+   ├─ abstract-black-and-white-white-photography-city-urban-271384-pxhere.com.jpg
+   └─ architecture-abstract-free-stock-photo-2929.jpg
 ```
 
 ## Key Components
-- App.jsx: Main application component that renders Header, Navigation, and Carousel
-- Header.jsx: Responsive header with "HOLISTIC TECH AGENCY" text, mobile word stacking
-- Navigation.jsx: Desktop horizontal nav + mobile burger menu with "E"/"X" toggle
-- Carousel.jsx: Image carousel with auto-advance, fade transitions, and dot navigation
-- global.css: CSS constants, font faces, color palette, and utility classes
-- Header.css: Header-specific styles with responsive font sizing
-- Navigation.css: Navigation styles with mobile burger menu positioning
-- Carousel.css: Carousel styles with full-width layout and fade transitions
+- **App.jsx**: Main application component with navigation state management, URL updates, and section handling
+- **Header.jsx**: Clickable header with "HOLISTIC TECH AGENCY" text, navigates to home section
+- **Navigation.jsx**: Desktop horizontal nav + mobile burger menu with sliding dropdown, sticky positioning
+- **Carousel.jsx**: Swipeable image carousel with touch/mouse drag support, auto-advance with manual reset
+- **Content.jsx**: Content component with newspaper-style image layout, drop cap, and section rendering
+- **global.css**: CSS constants, font faces, color palette, dark mode support, and utility classes
+- **Header.css**: Header-specific styles with full-width mobile support and z-index management
+- **Navigation.css**: Navigation styles with sticky positioning, dark mode active states, and mobile dropdown
+- **Carousel.css**: Carousel styles with full-width layout, taller height, and responsive design
+- **Content.css**: Content styles with newspaper image layout, drop cap, and text wrapping
 
 ## Key Variables and Methods
 
 ### CSS Custom Properties
-- **Theme Colors**: --bg-color, --text-color
-- **Font Families**: --font-primary (Helvetica Neue), --font-aovel (Aovel Sans Light), --font-lowvetica (Lowvetica)
+- **Theme Colors**: --bg-color, --text-color (with dark mode support)
+- **Font Families**: --font-primary (Helvetica Neue), --font-aovel (Aovel Sans Light), --font-aovel-ttf (Aovel Sans Light TTF), --font-lowvetica (Lowvetica)
 - **Font Sizes**: --font-size-xs (0.75rem), --font-size-sm (1rem), --font-size-md (1.5rem), --font-size-lg (2rem), --font-size-xl (3rem)
+- **Font Weights**: --font-weight-normal, --font-weight-bold
 - **Spacing**: --spacing-left-padding (1rem)
 - **Opacity**: --opacity-hover (0.7), --opacity-active (1)
+- **Gray Color**: --color-gray (#666666)
 
 ### Color Palette
 - **Primary**: --color-primary (#923a26 - reddish brown)
@@ -57,21 +73,50 @@ src/
 - **Inverted Colors**: --color-primary-invert (#6dc5d9), --color-secondary-invert (#1332f0), --color-tertiary-invert (#24375f), --color-accent-invert (#1f81ff)
 
 ### Component Methods
-- **Header**: Responsive text layout with mobile word stacking, left alignment
-- **Navigation**: Desktop horizontal menu + mobile burger menu with "E"/"X" toggle, top-right positioning
-- **Carousel**: Auto-advance every 8 seconds, fade transitions, dot navigation, full-width images
+- **App**: Navigation state management, URL updates with window.history.pushState, section change handling
+- **Header**: Clickable navigation to home section, full-width mobile support
+- **Navigation**: Desktop horizontal menu + mobile burger menu with sliding dropdown, sticky positioning, dark mode active states
+- **Carousel**: Swipeable with touch/mouse drag, auto-advance every 5 seconds with manual reset, dot navigation
+- **Content**: Newspaper-style image layout with text wrapping, drop cap for intro paragraph, section rendering
 
 ### Utility Classes
-- **unselectable**: Prevents text selection across all browsers
+- **unselectable**: Prevents text selection and dragging across all browsers
+
+## Navigation System
+- **State Management**: React state for current section tracking
+- **URL Updates**: Uses window.history.pushState for clean URLs without page reload
+- **Section Handling**: About (Home), Projects, Products, Services, Contact
+- **Mobile Navigation**: Sliding dropdown with fade animation, full-width active states
+- **Dark Mode**: Inverted text colors for active navigation options
+
+## Carousel Features
+- **Swipeable**: Touch swipe on mobile, mouse drag on desktop
+- **Auto-advance**: Every 5 seconds with manual reset on user interaction
+- **Manual Controls**: Dot navigation for direct slide access
+- **Images**: 4 new photos replacing original color-based images
+- **Height**: 500px desktop, 400px mobile for better visual impact
+
+## Content Layout
+- **Newspaper Style**: Images float right with text wrapping around them
+- **Drop Cap**: Large capital letter for intro paragraph using TTF font
+- **Text Wrapping**: All text sections wrap around floated images
+- **Unselectable**: All content is non-selectable for clean interaction
+
+## Dark Mode Support
+- **Automatic Detection**: Uses prefers-color-scheme media query
+- **Color Inversion**: Active navigation options use inverted text colors
+- **Background Colors**: Same color palette maintained across themes
+- **Text Contrast**: Black text on colored backgrounds in dark mode
 
 ## External Resources
-- **Image Generator**: `/home/dlbrptrvc/repos/temp/carousel_image_generator.py` - Python script to generate colored carousel images
-- **Generated Images**: 4 carousel images (1920x600px) with subtle gradients using color palette
+- **Images**: 4 new carousel photos moved from main folder to public folder
+- **Fonts**: TTF font added for drop cap styling
 
 ## Notes
 - Minimal design approach - functionality first
 - No styling other than layout and size purposes
 - Responsive design with mobile-first approach
-- All text elements use `unselectable` class to prevent selection
+- All text elements use `unselectable` class to prevent selection and dragging
 - Consistent spacing using CSS constants
 - Test after each step by running the app
+- Navigation options are non-draggable with comprehensive drag prevention

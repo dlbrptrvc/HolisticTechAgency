@@ -9,17 +9,11 @@ export default function App() {
   const [currentSection, setCurrentSection] = useState('About');
 
   const handleSectionChange = (section) => {
-    // Toggle: if clicking the same section, go back to About
-    if (currentSection === section) {
-      setCurrentSection('About');
+    setCurrentSection(section);
+    if (section === 'About') {
       window.history.pushState(null, '', '/');
     } else {
-      setCurrentSection(section);
-      if (section === 'About') {
-        window.history.pushState(null, '', '/');
-      } else {
-        window.history.pushState(null, '', `/#${section.toLowerCase()}`);
-      }
+      window.history.pushState(null, '', `/#${section.toLowerCase()}`);
     }
   };
 
