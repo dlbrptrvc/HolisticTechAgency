@@ -1,9 +1,10 @@
 import React from 'react';
 import '../styles/Header.css';
 
-const Header = ({ onSectionChange }) => {
+const Header = ({ onSectionChange, onCloseMenu }) => {
   const handleHeaderClick = () => {
     onSectionChange('About');
+    onCloseMenu();
   };
 
   return (

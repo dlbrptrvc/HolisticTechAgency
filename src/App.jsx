@@ -7,6 +7,7 @@ import './styles/App.css';
 
 export default function App() {
   const [currentSection, setCurrentSection] = useState('About');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleSectionChange = (section) => {
     setCurrentSection(section);
@@ -15,6 +16,10 @@ export default function App() {
     } else {
       window.history.pushState(null, '', `/#${section.toLowerCase()}`);
     }
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
   };
 
   useEffect(() => {
@@ -41,8 +46,8 @@ export default function App() {
 
   return (
     <div className="app">
-      <Header onSectionChange={handleSectionChange} />
-      <Navigation currentSection={currentSection} onSectionChange={handleSectionChange} />
+      <Header onSectionChange={handleSectionChange} onCloseMenu={closeMenu} />
+      <Navigation currentSection={currentSection} onSectionChange={handleSectionChange} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       <SwipeableImages />
       <Content section={currentSection} />
     </div>

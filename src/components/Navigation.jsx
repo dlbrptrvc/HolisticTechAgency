@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/Navigation.css';
 
-const Navigation = ({ currentSection, onSectionChange }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const Navigation = ({ currentSection, onSectionChange, isMenuOpen, setIsMenuOpen }) => {
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsMenuOpen(!isMenuOpen);
   };
 
   const closeMenu = () => {
-    setIsOpen(false);
+    setIsMenuOpen(false);
   };
 
   const handleNavClick = (section) => {
@@ -22,15 +20,15 @@ const Navigation = ({ currentSection, onSectionChange }) => {
       <nav className="navigation unselectable">
         {/* Burger Menu Button */}
         <button 
-          className={`burger-menu ${isOpen ? 'open' : ''}`}
+          className={`burger-menu ${isMenuOpen ? 'open' : ''}`}
           onClick={toggleMenu}
           aria-label="Toggle navigation menu"
         >
-          <span className="menu-text">{isOpen ? 'X' : 'E'}</span>
+          <span className="menu-text">{isMenuOpen ? 'X' : 'E'}</span>
         </button>
 
         {/* Navigation Menu */}
-        <div className={`nav-menu ${isOpen ? 'open' : ''}`}>
+        <div className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
         <ul className="nav-list">
           <li><a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('About'); }} className={currentSection === 'About' ? 'active' : ''}>Home</a></li>
           <li><a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('Projects'); }} className={currentSection === 'Projects' ? 'active' : ''}>Projects</a></li>

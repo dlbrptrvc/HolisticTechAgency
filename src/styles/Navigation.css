@@ -20,6 +20,22 @@
   z-index: 1001;
   align-items: center;
   justify-content: center;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.burger-menu:hover,
+.burger-menu:active,
+.burger-menu:focus {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  background: transparent;
 }
 
 .menu-text {
@@ -56,12 +72,30 @@
   width: 100%;
   padding: 0.5rem 0;
   transition: color 0.3s ease, background-color 0.3s ease;
+  background-color: transparent;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
   user-drag: none;
   -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.nav-list li a:hover,
+.nav-list li a:active,
+.nav-list li a:focus {
+  background-color: transparent;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
@@ -168,6 +202,21 @@
     width: 100%;
     text-align: center;
     padding: 0.75rem 0;
+    background-color: transparent;
+  }
+
+  .nav-list li a:hover,
+  .nav-list li a:active,
+  .nav-list li a:focus {
+    background-color: transparent;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 
   .nav-list li a.active {

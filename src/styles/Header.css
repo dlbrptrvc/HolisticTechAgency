@@ -13,6 +13,21 @@
   position: relative;
   z-index: 1000;
   background: var(--bg-color);
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.header:hover,
+.header:active,
+.header:focus {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Mobile responsive font size and layout */
