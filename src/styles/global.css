@@ -17,8 +17,8 @@
 
 @font-face {
   font-family: 'Aovel Sans Light TTF';
-  src: url('../assets/fonts/AovelSansLight-BYlw.ttf') format('truetype');
-  font-weight: 300;
+  src: url('../assets/fonts/AovelSansLight.ttf') format('truetype');
+  font-weight: normal;
   font-style: normal;
 }
 
@@ -71,7 +71,7 @@ html, body {
   --color-secondary: #eccd0f;
   --color-tertiary: #dbc8a0;
   --color-accent: #e07e00;
-  --color-gray: #666666;
+  --color-quaternary: #7c9c70;
   
   /* Inverted Colors for Light Theme */
   --color-primary-invert: #6dc5d9;

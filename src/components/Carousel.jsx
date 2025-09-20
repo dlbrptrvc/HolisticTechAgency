@@ -8,30 +8,49 @@ const Carousel = () => {
   const [mouseStart, setMouseStart] = useState(null);
   const [mouseEnd, setMouseEnd] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   
-  // Carousel slides using new photos
+  // Carousel slides using optimized responsive images
   const slides = [
     {
       id: 1,
       image: '/16355088121_ca168356a2_o.jpg',
+      desktopImage: '/desktop/16355088121_ca168356a2_o_desktop.jpg',
+      mobileImage: '/mobile/16355088121_ca168356a2_o_mobile.jpg',
       name: 'Photo 1'
     },
     {
       id: 2,
       image: '/432512_b37afa825b_o.jpg',
+      desktopImage: '/desktop/432512_b37afa825b_o_desktop.jpg',
+      mobileImage: '/mobile/432512_b37afa825b_o_mobile.jpg',
       name: 'Photo 2'
     },
     {
       id: 3,
       image: '/abstract-black-and-white-white-photography-city-urban-271384-pxhere.com.jpg',
+      desktopImage: '/desktop/abstract-black-and-white-white-photography-city-urban-271384-pxhere.com_desktop.jpg',
+      mobileImage: '/mobile/abstract-black-and-white-white-photography-city-urban-271384-pxhere.com_mobile.jpg',
       name: 'Photo 3'
     },
     {
       id: 4,
       image: '/architecture-abstract-free-stock-photo-2929.jpg',
+      desktopImage: '/desktop/architecture-abstract-free-stock-photo-2929_desktop.jpg',
+      mobileImage: '/mobile/architecture-abstract-free-stock-photo-2929_mobile.jpg',
       name: 'Photo 4'
     }
   ];
+
+  // Handle window resize for responsive images
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Auto-advance slides every 5 seconds, reset when manually changed
   useEffect(() => {
@@ -129,7 +148,7 @@ const Carousel = () => {
             className={`carousel-slide ${index === currentSlide ? 'active' : ''}`}
           >
             <img 
-              src={slide.image} 
+              src={isMobile ? slide.mobileImage : slide.desktopImage} 
               alt={slide.name}
               className="slide-image"
             />

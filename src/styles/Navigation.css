@@ -31,7 +31,7 @@
 
 .nav-menu {
   display: flex;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .nav-list {
@@ -73,12 +73,12 @@
   }
 
   .nav-list li:nth-child(2) a.active {
-    background-color: var(--color-tertiary);
+    background-color: var(--color-accent);
     color: white;
   }
 
   .nav-list li:nth-child(3) a.active {
-    background-color: var(--color-accent);
+    background-color: var(--color-tertiary);
     color: white;
   }
 
@@ -88,7 +88,7 @@
   }
 
   .nav-list li:nth-child(5) a.active {
-    background-color: var(--color-tertiary);
+    background-color: var(--color-quaternary);
     color: white;
   }
 

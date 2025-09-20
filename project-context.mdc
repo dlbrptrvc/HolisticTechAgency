@@ -76,7 +76,7 @@ src/
 - **App**: Navigation state management, URL updates with window.history.pushState, section change handling
 - **Header**: Clickable navigation to home section, full-width mobile support
 - **Navigation**: Desktop horizontal menu + mobile burger menu with sliding dropdown, sticky positioning, dark mode active states
-- **Carousel**: Swipeable with touch/mouse drag, auto-advance every 5 seconds with manual reset, dot navigation
+- **Carousel**: Swipeable with touch/mouse drag, auto-advance every 5 seconds with manual reset, dot navigation, responsive images
 - **Content**: Newspaper-style image layout with text wrapping, drop cap for intro paragraph, section rendering
 
 ### Utility Classes
@@ -93,8 +93,9 @@ src/
 - **Swipeable**: Touch swipe on mobile, mouse drag on desktop
 - **Auto-advance**: Every 5 seconds with manual reset on user interaction
 - **Manual Controls**: Dot navigation for direct slide access
-- **Images**: 4 new photos replacing original color-based images
+- **Responsive Images**: Desktop (1200x500, 85% quality) and mobile (800x400, 70% quality) optimized versions
 - **Height**: 500px desktop, 400px mobile for better visual impact
+- **Performance**: Significantly reduced file sizes (7.3MB → 101KB desktop, 33KB mobile for largest image)
 
 ## Content Layout
 - **Newspaper Style**: Images float right with text wrapping around them
@@ -110,6 +111,7 @@ src/
 
 ## External Resources
 - **Images**: 4 new carousel photos moved from main folder to public folder
+- **Optimized Images**: Desktop (1200x500, 85% quality) and mobile (800x400, 70% quality) versions created
 - **Fonts**: TTF font added for drop cap styling
 
 ## Notes
