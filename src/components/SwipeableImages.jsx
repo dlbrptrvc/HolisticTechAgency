@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/Carousel.css';
+import '../styles/SwipeableImages.css';
 
-const Carousel = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+const SwipeableImages = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
   const [mouseStart, setMouseStart] = useState(null);
   const [mouseEnd, setMouseEnd] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [showDots, setShowDots] = useState(false);
   
-  // Carousel slides using optimized responsive images
-  const slides = [
+  // Images using optimized responsive images
+  const images = [
     {
       id: 1,
       image: '/16355088121_ca168356a2_o.jpg',
@@ -52,30 +53,34 @@ const Carousel = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Auto-advance slides every 5 seconds, reset when manually changed
+  // Hide dots 2 seconds after last interaction
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    if (showDots) {
+      const timer = setTimeout(() => {
+        setShowDots(false);
+      }, 2000); // Hide dots after 2 seconds of no interaction
 
-    return () => clearInterval(timer);
-  }, [currentSlide]); // Reset timer when currentSlide changes
+      return () => clearTimeout(timer);
+    }
+  }, [showDots]);
 
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
+  const goToImage = (index) => {
+    setCurrentIndex(index);
+    setShowDots(true);
   };
 
   const goToPrevious = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
   const goToNext = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
+    setCurrentIndex((prev) => (prev + 1) % images.length);
   };
 
   const handleTouchStart = (e) => {
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
+    setShowDots(true);
   };
 
   const handleTouchMove = (e) => {
@@ -90,10 +95,10 @@ const Carousel = () => {
     const isRightSwipe = distance < -50;
 
     if (isLeftSwipe) {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      setCurrentIndex((prev) => (prev + 1) % images.length);
     }
     if (isRightSwipe) {
-      setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+      setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
     }
   };
 
@@ -101,6 +106,7 @@ const Carousel = () => {
     setIsDragging(true);
     setMouseEnd(null);
     setMouseStart(e.clientX);
+    setShowDots(true);
     e.preventDefault();
   };
 
@@ -120,19 +126,23 @@ const Carousel = () => {
     const isRightSwipe = distance < -50;
 
     if (isLeftSwipe) {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      setCurrentIndex((prev) => (prev + 1) % images.length);
     }
     if (isRightSwipe) {
-      setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+      setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
     }
     
     setIsDragging(false);
   };
 
+  const handleClick = () => {
+    setShowDots(true);
+  };
+
   return (
-    <div className="carousel unselectable">
+    <div className="swipeable-images unselectable">
       <div 
-        className="carousel-container"
+        className="images-container"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
@@ -140,28 +150,31 @@ const Carousel = () => {
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
+        onClick={handleClick}
         style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
       >
-        {slides.map((slide, index) => (
-          <div 
-            key={slide.id} 
-            className={`carousel-slide ${index === currentSlide ? 'active' : ''}`}
-          >
-            <img 
-              src={isMobile ? slide.mobileImage : slide.desktopImage} 
-              alt={slide.name}
-              className="slide-image"
-            />
-          </div>
-        ))}
+        <div 
+          className="images-track"
+          style={{ transform: `translateX(-${currentIndex * 25}%)` }}
+        >
+          {images.map((image) => (
+            <div key={image.id} className="image-slide">
+              <img 
+                src={isMobile ? image.mobileImage : image.desktopImage} 
+                alt={image.name}
+                className="slide-image"
+              />
+            </div>
+          ))}
+        </div>
         
         {/* Dots indicator */}
-        <div className="carousel-dots">
-          {slides.map((_, index) => (
+        <div className={`images-dots ${showDots ? 'visible' : ''}`}>
+          {images.map((_, index) => (
             <button
               key={index}
-              className={`carousel-dot ${index === currentSlide ? 'active' : ''}`}
-              onClick={() => goToSlide(index)}
+              className={`image-dot ${index === currentIndex ? 'active' : ''}`}
+              onClick={() => goToImage(index)}
             />
           ))}
         </div>
@@ -170,4 +183,4 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default SwipeableImages;

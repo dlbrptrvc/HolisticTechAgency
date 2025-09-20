@@ -1,6 +1,6 @@
-/* Carousel Component Styles */
+/* SwipeableImages Component Styles */
 
-.carousel {
+.swipeable-images {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   height: 500px;
@@ -10,24 +10,23 @@
   max-width: none;
 }
 
-.carousel-container {
+.images-container {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-.carousel-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+.images-track {
+  display: flex;
+  width: 400%;
   height: 100%;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
-.carousel-slide.active {
-  opacity: 1;
+.image-slide {
+  width: 25%;
+  height: 100%;
+  flex-shrink: 0;
 }
 
 .slide-image {
@@ -38,7 +37,7 @@
 }
 
 /* Dots indicator */
-.carousel-dots {
+.images-dots {
   position: absolute;
   bottom: 1rem;
   left: 50%;
@@ -46,9 +45,17 @@
   display: flex;
   gap: 0.5rem;
   z-index: 10;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  pointer-events: none;
 }
 
-.carousel-dot {
+.images-dots.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.image-dot {
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -59,17 +66,17 @@
   transition: opacity 0.3s ease;
 }
 
-.carousel-dot.active {
+.image-dot.active {
   opacity: 1;
 }
 
-.carousel-dot:hover {
+.image-dot:hover {
   opacity: 0.7;
 }
 
 /* Mobile responsive styles */
 @media (max-width: 768px) {
-  .carousel {
+  .swipeable-images {
     height: 400px;
   }
 }

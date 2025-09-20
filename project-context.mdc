@@ -11,7 +11,7 @@ src/
 ├─ components/
 │  ├─ Header.jsx        # Clickable header component with responsive text layout
 │  ├─ Navigation.jsx    # Navigation with burger menu for mobile, sticky positioning
-│  ├─ Carousel.jsx      # Swipeable image carousel with auto-advance and manual controls
+│  ├─ SwipeableImages.jsx # Swipeable image component with horizontal swipe functionality
 │  └─ Content.jsx       # Content component with newspaper-style image layout
 ├─ content/
 │  ├─ About.json        # About section content with image and text sections
@@ -32,7 +32,7 @@ src/
 │  ├─ App.css           # App container styles
 │  ├─ Header.css        # Header component styles with full-width mobile support
 │  ├─ Navigation.css    # Navigation component styles with sticky positioning and dark mode
-│  ├─ Carousel.css      # Carousel component styles with swipeable functionality
+│  ├─ SwipeableImages.css   # SwipeableImages component styles with horizontal layout
 │  └─ Content.css       # Content component styles with newspaper layout and drop cap
 └─ public/
    ├─ about-image.jpeg
@@ -46,12 +46,12 @@ src/
 - **App.jsx**: Main application component with navigation state management, URL updates, and section handling
 - **Header.jsx**: Clickable header with "HOLISTIC TECH AGENCY" text, navigates to home section
 - **Navigation.jsx**: Desktop horizontal nav + mobile burger menu with sliding dropdown, sticky positioning
-- **Carousel.jsx**: Swipeable image carousel with touch/mouse drag support, auto-advance with manual reset
+- **SwipeableImages.jsx**: Swipeable image component with horizontal swipe functionality, touch/mouse drag support, dot navigation, responsive images
 - **Content.jsx**: Content component with newspaper-style image layout, drop cap, and section rendering
 - **global.css**: CSS constants, font faces, color palette, dark mode support, and utility classes
 - **Header.css**: Header-specific styles with full-width mobile support and z-index management
 - **Navigation.css**: Navigation styles with sticky positioning, dark mode active states, and mobile dropdown
-- **Carousel.css**: Carousel styles with full-width layout, taller height, and responsive design
+- **SwipeableImages.css**: SwipeableImages styles with horizontal layout, full-width design, and responsive images
 - **Content.css**: Content styles with newspaper image layout, drop cap, and text wrapping
 
 ## Key Variables and Methods
@@ -76,7 +76,7 @@ src/
 - **App**: Navigation state management, URL updates with window.history.pushState, section change handling
 - **Header**: Clickable navigation to home section, full-width mobile support
 - **Navigation**: Desktop horizontal menu + mobile burger menu with sliding dropdown, sticky positioning, dark mode active states
-- **Carousel**: Swipeable with touch/mouse drag, auto-advance every 5 seconds with manual reset, dot navigation, responsive images
+- **SwipeableImages**: Swipeable with touch/mouse drag, horizontal image layout, dot navigation, responsive images
 - **Content**: Newspaper-style image layout with text wrapping, drop cap for intro paragraph, section rendering
 
 ### Utility Classes
@@ -89,10 +89,10 @@ src/
 - **Mobile Navigation**: Sliding dropdown with fade animation, full-width active states
 - **Dark Mode**: Inverted text colors for active navigation options
 
-## Carousel Features
+## SwipeableImages Features
 - **Swipeable**: Touch swipe on mobile, mouse drag on desktop
-- **Auto-advance**: Every 5 seconds with manual reset on user interaction
-- **Manual Controls**: Dot navigation for direct slide access
+- **Horizontal Layout**: Images arranged horizontally with smooth transitions
+- **Manual Controls**: Dot navigation for direct image access
 - **Responsive Images**: Desktop (1200x500, 85% quality) and mobile (800x400, 70% quality) optimized versions
 - **Height**: 500px desktop, 400px mobile for better visual impact
 - **Performance**: Significantly reduced file sizes (7.3MB → 101KB desktop, 33KB mobile for largest image)

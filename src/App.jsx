@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
-import Carousel from './components/Carousel';
+import SwipeableImages from './components/SwipeableImages';
 import Content from './components/Content';
 import './styles/App.css';
 
@@ -43,7 +43,7 @@ export default function App() {
     <div className="app">
       <Header onSectionChange={handleSectionChange} />
       <Navigation currentSection={currentSection} onSectionChange={handleSectionChange} />
-      <Carousel />
+      <SwipeableImages />
       <Content section={currentSection} />
     </div>
   );
