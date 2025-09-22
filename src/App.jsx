@@ -6,12 +6,12 @@ import Content from './components/Content';
 import './styles/App.css';
 
 export default function App() {
-  const [currentSection, setCurrentSection] = useState('About');
+  const [currentSection, setCurrentSection] = useState('Home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleSectionChange = (section) => {
     setCurrentSection(section);
-    if (section === 'About') {
+    if (section === 'Home') {
       window.history.pushState(null, '', '/');
     } else {
       window.history.pushState(null, '', `/#${section.toLowerCase()}`);
@@ -29,7 +29,7 @@ export default function App() {
         const section = hash.charAt(0).toUpperCase() + hash.slice(1);
         setCurrentSection(section);
       } else {
-        setCurrentSection('About');
+        setCurrentSection('Home');
       }
     };
 

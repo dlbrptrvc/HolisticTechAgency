@@ -1,9 +1,14 @@
 {
   "sections": [
     {
-      "layout": "column-right",
-      "type": "keywords",
-      "text": "Web Development, Quality Assurance, Project Management, Digital Consulting"
+      "type": "text",
+      "heading": "About Holistic Tech Agency",
+      "content": "Founded in 2025, we provide digital services with three core principles: attention to detail, big picture perspective, and ethical business practices. We focus on full-stack development, QA, and project management to deliver seamless user experiences."
+    },
+    {
+      "type": "text", 
+      "heading": "Our Approach",
+      "content": "We ensure every aspect of your product reflects quality and purpose. From architecture planning to post-launch support, our team understands the full lifecycle and delivers meaningful, high-quality work that scales with your business."
     }
   ]
 }

@@ -1,4 +1,14 @@
 {
-  "title": "",
-  "content": ""
+  "sections": [
+    {
+      "type": "text",
+      "heading": "Get In Touch",
+      "content": "Ready to start your digital project? Contact us to discuss your needs and how we can help bring your vision to life with our comprehensive development and project management services."
+    },
+    {
+      "type": "text",
+      "heading": "Why Choose Us",
+      "content": "We combine technical expertise with ethical business practices. Our attention to detail, big picture perspective, and commitment to quality ensure your project succeeds from concept to launch and beyond."
+    }
+  ]
 }

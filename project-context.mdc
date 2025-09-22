@@ -47,7 +47,7 @@ src/
 - **Header.jsx**: Clickable header with "HOLISTIC TECH AGENCY" text, navigates to home section
 - **Navigation.jsx**: Desktop horizontal nav + mobile burger menu with sliding dropdown, sticky positioning
 - **SwipeableImages.jsx**: Swipeable image component with horizontal swipe functionality, touch/mouse drag support, dot navigation, responsive images
-- **Content.jsx**: Content component with newspaper-style image layout, drop cap, and section rendering
+- **Content.jsx**: Content component with two-column responsive layout, dynamic text stretching, and keyword highlighting
 - **global.css**: CSS constants, font faces, color palette, dark mode support, and utility classes
 - **Header.css**: Header-specific styles with full-width mobile support and z-index management
 - **Navigation.css**: Navigation styles with sticky positioning, dark mode active states, and mobile dropdown
@@ -114,11 +114,36 @@ src/
 - **Optimized Images**: Desktop (1200x500, 85% quality) and mobile (800x400, 70% quality) versions created
 - **Fonts**: TTF font added for drop cap styling
 
+## Recent Updates - Home Page Content Enhancement
+
+### Two-Column Layout
+- **Desktop**: Home content split into 1:2 ratio columns
+- **Mobile**: Single column layout (responsive)
+- **First Column**: About section with keyword highlighting
+- **Second Column**: Three principles with dynamic text stretching
+
+### Dynamic Text Stretching Component
+- **StretchedText**: JavaScript component that dynamically calculates letter spacing
+- **Features**: Measures container width, calculates exact spacing needed, responsive on resize
+- **Font Size**: 95% of original size for better visual balance
+- **Spacing**: 70% of calculated spacing for natural appearance
+
+### Keyword Highlighting System
+- **Home Section**: Multiple color highlights with different sizes
+- **Attention to Detail**: Green and orange highlights with size variations
+- **Colors Used**: Primary (reddish brown), Secondary (yellow), Tertiary (beige), Quaternary (green), Accent (orange)
+- **Sizes**: Small, medium, and large font sizes for visual hierarchy
+
+### Content Updates
+- **About Text**: Updated with detailed agency description and three core principles
+- **Highlighted Keywords**: "The Agency", "full-stack app development", "QA", "project management", "digital consulting", "three important principles"
+- **Attention to Detail**: Highlighted "successful product", "seamless experience", "Holistic Tech"
+
 ## Notes
 - Minimal design approach - functionality first
 - No styling other than layout and size purposes
 - Responsive design with mobile-first approach
 - All text elements use `unselectable` class to prevent selection and dragging
 - Consistent spacing using CSS constants
-- Test after each step by running the app
+
 - Navigation options are non-draggable with comprehensive drag prevention

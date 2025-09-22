@@ -1,4 +1,19 @@
 {
-  "title": "",
-  "content": ""
+  "sections": [
+    {
+      "type": "text",
+      "heading": "Full-Stack Development (Web & Mobile)",
+      "content": "We design and build scalable applications, covering frontend, backend, databases, and deployment. From responsive web platforms to mobile apps, we deliver solutions that are reliable, fast, and ready to grow."
+    },
+    {
+      "type": "text",
+      "heading": "Quality Assurance",
+      "content": "We test every feature to ensure your product is stable, secure, and user-friendly. Through manual and automated testing, we catch issues early and guarantee smooth performance across devices and platforms."
+    },
+    {
+      "type": "text",
+      "heading": "Project Management",
+      "content": "We manage the full product lifecycle — from planning to launch. Using agile methods, clear reporting, and risk control, we keep projects on track, on budget, and aligned with your goals."
+    }
+  ]
 }

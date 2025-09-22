@@ -30,7 +30,7 @@ const Navigation = ({ currentSection, onSectionChange, isMenuOpen, setIsMenuOpen
         {/* Navigation Menu */}
         <div className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
         <ul className="nav-list">
-          <li><a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('About'); }} className={currentSection === 'About' ? 'active' : ''}>Home</a></li>
+          <li><a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('Home'); }} className={currentSection === 'Home' ? 'active' : ''}>Home</a></li>
           <li><a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('Projects'); }} className={currentSection === 'Projects' ? 'active' : ''}>Projects</a></li>
           <li><a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('Products'); }} className={currentSection === 'Products' ? 'active' : ''}>Products</a></li>
           <li><a href="#" onClick={(e) => { e.preventDefault(); handleNavClick('Services'); }} className={currentSection === 'Services' ? 'active' : ''}>Services</a></li>

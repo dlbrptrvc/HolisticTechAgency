@@ -2,10 +2,11 @@
 
 .content {
   padding: 2rem var(--spacing-left-padding);
-  max-width: 100%;
-  width: 100%;
+  max-width: 55vw;
+  width: 55vw;
   overflow-x: hidden;
   box-sizing: border-box;
+  margin: 0;
 }
 
 .content-intro {
@@ -73,10 +74,88 @@
   text-align: center;
 }
 
+/* Home content layout */
+.home-content {
+  display: flex;
+  gap: 2rem;
+}
+
+.home-column-1 {
+  flex: 1;
+}
+
+.home-column-2 {
+  flex: 2;
+}
+
+.home-about-text {
+  margin-bottom: 2rem;
+  text-align: justify;
+}
+
+.home-principle-text {
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.home-principle-text-last {
+  text-align: justify;
+}
+
+.home-about-heading {
+  text-align: left;
+  color: var(--color-secondary);
+  font-size: var(--font-size-lg);
+}
+
+.home-keyword-primary {
+  color: var(--color-primary);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+}
+
+.home-keyword-accent {
+  color: var(--color-accent);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+}
+
+.home-keyword-tertiary {
+  color: var(--color-tertiary);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+}
+
+.home-principle-heading {
+  color: var(--color-quaternary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  width: 100%;
+}
+
+.stretched-text {
+  display: block;
+  width: 100%;
+}
+
+.home-principle-highlight-green {
+  color: var(--color-quaternary);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+}
+
+.home-principle-highlight-orange {
+  color: var(--color-accent);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+}
+
 /* Mobile responsive */
 @media (max-width: 768px) {
   .content {
     padding: 1.5rem var(--spacing-left-padding);
+    max-width: 100%;
+    width: 100%;
   }
   
   .content-title {
@@ -87,5 +166,15 @@
     float: none;
     width: 100%;
     margin: 1rem 0;
+  }
+  
+  /* Mobile: single column layout for home content */
+  .home-content {
+    display: block;
+  }
+  
+  .home-column-1,
+  .home-column-2 {
+    flex: none;
   }
 }
