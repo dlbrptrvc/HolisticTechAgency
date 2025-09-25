@@ -1,27 +1,23 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../styles/Content.css';
 
-const StretchedText = ({ text, className }) => {
-  const textRef = useRef(null);
-  const [letterSpacing, setLetterSpacing] = useState(0);
+const DynamicHeading = ({ text, className }) => {
+  const headingRef = useRef(null);
+  const [fontSize, setFontSize] = useState('3rem');
 
   useEffect(() => {
-    const calculateLetterSpacing = () => {
-      if (!textRef.current) return;
+    const calculateFontSize = () => {
+      if (!headingRef.current) return;
 
-      const container = textRef.current.parentElement;
+      const container = headingRef.current.parentElement;
       const containerWidth = container.offsetWidth;
       
       // Create a temporary element to measure text width
       const tempElement = document.createElement('span');
-      const originalFontSize = getComputedStyle(textRef.current).fontSize;
-      const fontSizeValue = parseFloat(originalFontSize);
-      const smallerFontSize = `${fontSizeValue * 0.95}px`; // Make letters 5% smaller
-      
-      tempElement.style.fontSize = smallerFontSize;
-      tempElement.style.fontFamily = getComputedStyle(textRef.current).fontFamily;
-      tempElement.style.fontWeight = getComputedStyle(textRef.current).fontWeight;
-      tempElement.style.letterSpacing = '0px';
+      tempElement.style.fontSize = '1rem';
+      tempElement.style.fontFamily = getComputedStyle(headingRef.current).fontFamily;
+      tempElement.style.fontWeight = getComputedStyle(headingRef.current).fontWeight;
+      tempElement.style.letterSpacing = '2px';
       tempElement.textContent = text;
       tempElement.style.visibility = 'hidden';
       tempElement.style.position = 'absolute';
@@ -30,35 +26,32 @@ const StretchedText = ({ text, className }) => {
       const textWidth = tempElement.offsetWidth;
       document.body.removeChild(tempElement);
       
-      // Calculate required letter spacing with smaller font (eased down)
-      const totalSpacing = containerWidth - textWidth;
-      const spacesNeeded = text.length - 1;
-      const spacingPerLetter = spacesNeeded > 0 ? totalSpacing / spacesNeeded : 0;
-      
-      // Ease down the spacing by 30% to make it less aggressive
-      setLetterSpacing(Math.max(0, spacingPerLetter * 0.7));
+      // Calculate font size to fill the container width
+      const scaleFactor = containerWidth / textWidth;
+      const newFontSize = Math.max(1.5, Math.min(6, scaleFactor * 1.1)); // Min 1.5rem, Max 6rem, with 10% increase
+      setFontSize(`${newFontSize}rem`);
     };
 
-    calculateLetterSpacing();
+    calculateFontSize();
     
     // Recalculate on window resize
-    window.addEventListener('resize', calculateLetterSpacing);
-    return () => window.removeEventListener('resize', calculateLetterSpacing);
+    window.addEventListener('resize', calculateFontSize);
+    return () => window.removeEventListener('resize', calculateFontSize);
   }, [text]);
 
   return (
-    <span 
-      ref={textRef}
+    <h2 
+      ref={headingRef}
       className={className}
       style={{ 
-        letterSpacing: `${letterSpacing}px`,
-        fontSize: '95%'
+        fontSize: fontSize
       }}
     >
       {text}
-    </span>
+    </h2>
   );
 };
+
 
 const Content = ({ section }) => {
   const renderContent = () => {
@@ -68,18 +61,29 @@ const Content = ({ section }) => {
           <div className="home-content">
             <div className="home-column-1">
 
-              <p className="home-about-text"><span className="home-keyword-primary">The Agency</span> was founded in 2025 with the intention of providing digital services, including <span className="home-keyword-tertiary">full-stack app development</span> and <span className="home-keyword-primary">QA</span>, as well as <span className="home-keyword-primary">project management</span> and <span className="home-keyword-tertiary">digital consulting</span>. The idea was to foster a relationship towards work, projects, and digital products which would encompass these <span className="home-keyword-primary">three important principles</span>:</p>
+              <div className="home-about-text">
+                <span className="home-keyword-primary" style={{fontSize: '2rem'}}>THE AGENCY</span>
+                <p>was founded in 2025 with the intention of providing digital services, including</p>
+                <span className="home-keyword-tertiary" style={{fontSize: '1.4rem', display: 'block'}}>FULL-STACK APP<br/>DEVELOPMENT</span>
+                <p>and</p>
+                <span className="home-keyword-primary" style={{fontSize: '2.5rem', display: 'block'}}>QA</span>
+                <p>as well as</p>
+                <span className="home-keyword-primary" style={{fontSize: '1.3rem', display: 'block'}}>PROJECT MANAGEMENT</span>
+                <p>and</p>
+                <span className="home-keyword-tertiary" style={{fontSize: '1.4rem', display: 'block'}}>DIGITAL CONSULTING</span>
+                <p>The idea was to foster a relationship towards work, projects, and digital products which would encompass these</p>
+                <span className="home-keyword-primary-smaller" style={{fontSize: '0.9rem', display: 'block'}}>THREE IMPORTANT PRINCIPLES:</span>
+              </div>
             </div>
             <div className="home-column-2">
-                <h2 className="home-principle-heading">
-                  <StretchedText text="Attention to Detail" className="stretched-text" />
-                </h2>
-              <p className="home-principle-text">In an age where an increasing amount of work is outsourced to AI or non-English-speaking countries, there is an increasing need for detail-oriented work. For an app to be a <span className="home-principle-highlight-green">successful product</span> and provide the user with a <span className="home-principle-highlight-orange">seamless experience</span>, it has to be designed with each and every aspect of it reflecting the whole. Gaps and bumps in the design or functionality make users wary of using the product and, with time, drop the overall support for it. At <span className="home-principle-highlight-green">Holistic Tech</span> each part of the software is taken care of as a thing in itself, and special care is taken to prevent and remove issues that would signal wrong practices to end users, such as low-effort coding, AI coding, cheap outsourced development teams, irresponsiveness, or rashness in complying with schedules. When all of this is circumvented, a development team can truly start to focus on the details of the product.</p>
+                <p>&nbsp;</p>
+                <DynamicHeading text="Attention to Detail" className="home-principle-heading" />
+              <p className="home-principle-text">In an age where an increasing amount of work is outsourced to AI or non-English-speaking countries, there is an increasing need for detail-oriented work. For an app to be a successful product and provide the user with a seamless experience, it has to be designed with each and every aspect of it reflecting the whole. Gaps and bumps in the design or functionality make users wary of using the product and, with time, drop the overall support for it. At Holistic Tech each part of the software is taken care of as a thing in itself, and special care is taken to prevent and remove issues that would signal wrong practices to end users, such as low-effort coding, AI coding, cheap outsourced development teams, irresponsiveness, or rashness in complying with schedules. When all of this is circumvented, a development team can truly start to focus on the details of the product.</p>
               
-              <h4>The Big Picture Perspective</h4>
+              <DynamicHeading text="The Big Picture Perspective" className="home-principle-heading" />
               <p className="home-principle-text">It is not enough to develop a product that matches the owner's vision. We are here to make sure that vision is a sound one, and that the product developed will have a future on the market once it is ready to be released. Therefore, we manage our projects and products well before any real engineering takes place and stay with the product during each phase of its lifecycle. During development our team doing the hands-on work truly understands the product architecture and the plans and goals that the app needs to fulfill, which helps them do more meaningful and higher-quality work. This also helps in setting up the product and the team for future scaling.</p>
               
-              <h4>Ethical Business</h4>
+              <DynamicHeading text="Ethical Business" className="home-principle-heading" />
               <p className="home-principle-text-last">We also make sure that the work we provide is highly ethical with regard to the environment, and human and animal rights. We like to see our work, and the way we delegate and do work, as a force for good in the world. We in no way support any form of involuntary oppression, exploitation, or non-ethical behavior, and choose our work and associates based on those qualities as well as their expertise.</p>
             </div>
           </div>

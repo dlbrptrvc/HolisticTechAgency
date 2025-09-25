@@ -60,6 +60,7 @@ src/
 - **Theme Colors**: --bg-color, --text-color (with dark mode support)
 - **Font Families**: --font-primary (Helvetica Neue), --font-aovel (Aovel Sans Light), --font-aovel-ttf (Aovel Sans Light TTF), --font-lowvetica (Lowvetica)
 - **Font Sizes**: --font-size-xs (0.75rem), --font-size-sm (1rem), --font-size-md (1.5rem), --font-size-lg (2rem), --font-size-xl (3rem)
+- **Keyword Classes**: home-keyword-primary (md size), home-keyword-primary-smaller (sm size), home-keyword-tertiary (md size), home-keyword-accent (sm size)
 - **Font Weights**: --font-weight-normal, --font-weight-bold
 - **Spacing**: --spacing-left-padding (1rem)
 - **Opacity**: --opacity-hover (0.7), --opacity-active (1)
@@ -133,6 +134,7 @@ src/
 - **Attention to Detail**: Green and orange highlights with size variations
 - **Colors Used**: Primary (reddish brown), Secondary (yellow), Tertiary (beige), Quaternary (green), Accent (orange)
 - **Sizes**: Small, medium, and large font sizes for visual hierarchy
+- **Three Important Principles**: Uses smaller primary styling (font-size-sm) for subtle emphasis
 
 ### Content Updates
 - **About Text**: Updated with detailed agency description and three core principles

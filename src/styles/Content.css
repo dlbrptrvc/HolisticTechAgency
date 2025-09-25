@@ -90,16 +90,16 @@
 
 .home-about-text {
   margin-bottom: 2rem;
-  text-align: justify;
+  text-align: left;
 }
 
 .home-principle-text {
   margin-bottom: 1rem;
-  text-align: justify;
+  text-align: right;
 }
 
 .home-principle-text-last {
-  text-align: justify;
+  text-align: right;
 }
 
 .home-about-heading {
@@ -111,6 +111,12 @@
 .home-keyword-primary {
   color: var(--color-primary);
   font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+}
+
+.home-keyword-primary-smaller {
+  color: var(--color-primary);
+  font-size: 1.25rem;
   font-weight: var(--font-weight-bold);
 }
 
@@ -127,16 +133,13 @@
 }
 
 .home-principle-heading {
-  color: var(--color-quaternary);
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
+  color: var(--color-tertiary);
+  font-weight: 900 !important;
   width: 100%;
+  text-align: right;
+  letter-spacing: 2px;
 }
 
-.stretched-text {
-  display: block;
-  width: 100%;
-}
 
 .home-principle-highlight-green {
   color: var(--color-quaternary);
@@ -158,9 +161,9 @@
     width: 100%;
   }
   
-  .content-title {
+  /* .content-title {
     font-size: var(--font-size-lg);
-  }
+  } */
   
   .image-container {
     float: none;
@@ -176,5 +179,21 @@
   .home-column-1,
   .home-column-2 {
     flex: none;
+  }
+  
+  /* Mobile: justify text in second column */
+  .home-principle-text,
+  .home-principle-text-last {
+    text-align: justify;
+  }
+  
+  /* Mobile: capitalize headings in second column */
+  .home-principle-heading {
+    text-transform: uppercase;
+  }
+  
+  /* Mobile: make THE AGENCY smaller */
+  .home-about-text .home-keyword-primary:first-child {
+    font-size: 1.7rem !important;
   }
 }
