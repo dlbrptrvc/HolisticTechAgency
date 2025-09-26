@@ -4,6 +4,13 @@
   background: var(--bg-color);
 }
 
+/* Desktop min-width */
+@media (min-width: 769px) {
+  .navigation-wrapper {
+    min-width: 1056px;
+  }
+}
+
 .navigation {
   background: var(--bg-color);
 }

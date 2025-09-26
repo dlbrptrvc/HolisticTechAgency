@@ -1,7 +1,7 @@
 # HolisticTechAgency Project Context
 
 ## Project Overview
-A React-based webpage for HolisticTechAgency built with Vite. Features responsive design with mobile-first navigation, swipeable image carousel, and newspaper-style content layout.
+A React-based webpage for HolisticTechAgency built with Vite. Features responsive design with mobile-first navigation, swipeable image carousel, and data-driven content layout with JSON-based content management.
 
 ## Project Structure
 ```
@@ -12,13 +12,13 @@ src/
 │  ├─ Header.jsx        # Clickable header component with responsive text layout
 │  ├─ Navigation.jsx    # Navigation with burger menu for mobile, sticky positioning
 │  ├─ SwipeableImages.jsx # Swipeable image component with horizontal swipe functionality
-│  └─ Content.jsx       # Content component with newspaper-style image layout
+│  └─ Content.jsx       # Content component with data-driven layout from JSON files
 ├─ content/
-│  ├─ About.json        # About section content with image and text sections
-│  ├─ Projects.json     # Projects section content
-│  ├─ Products.json     # Products section content
-│  ├─ Services.json     # Services section content
-│  └─ Contact.json       # Contact section content
+│  ├─ Home.json         # Home section content with two-column layout
+│  ├─ Projects.json     # Projects section content with regular layout
+│  ├─ Products.json     # Products section content with regular layout
+│  ├─ Services.json     # Services section content with regular layout
+│  └─ Contact.json      # Contact section content with regular layout
 ├─ assets/
 │  ├─ fonts/
 │  │  ├─ AovelSans-Light.otf
@@ -47,12 +47,12 @@ src/
 - **Header.jsx**: Clickable header with "HOLISTIC TECH AGENCY" text, navigates to home section
 - **Navigation.jsx**: Desktop horizontal nav + mobile burger menu with sliding dropdown, sticky positioning
 - **SwipeableImages.jsx**: Swipeable image component with horizontal swipe functionality, touch/mouse drag support, dot navigation, responsive images
-- **Content.jsx**: Content component with two-column responsive layout, dynamic text stretching, and keyword highlighting
+- **Content.jsx**: Content component with data-driven layout, reads from JSON files, supports two-column and regular layouts
 - **global.css**: CSS constants, font faces, color palette, dark mode support, and utility classes
 - **Header.css**: Header-specific styles with full-width mobile support and z-index management
 - **Navigation.css**: Navigation styles with sticky positioning, dark mode active states, and mobile dropdown
 - **SwipeableImages.css**: SwipeableImages styles with horizontal layout, full-width design, and responsive images
-- **Content.css**: Content styles with newspaper image layout, drop cap, and text wrapping
+- **Content.css**: Content styles with two-column layout, section containers, and responsive design
 
 ## Key Variables and Methods
 
@@ -78,7 +78,7 @@ src/
 - **Header**: Clickable navigation to home section, full-width mobile support
 - **Navigation**: Desktop horizontal menu + mobile burger menu with sliding dropdown, sticky positioning, dark mode active states
 - **SwipeableImages**: Swipeable with touch/mouse drag, horizontal image layout, dot navigation, responsive images
-- **Content**: Newspaper-style image layout with text wrapping, drop cap for intro paragraph, section rendering
+- **Content**: Data-driven content rendering from JSON files, supports two-column (Home) and regular layouts (Services, Contact, Products, Projects)
 
 ### Utility Classes
 - **unselectable**: Prevents text selection and dragging across all browsers
@@ -86,7 +86,7 @@ src/
 ## Navigation System
 - **State Management**: React state for current section tracking
 - **URL Updates**: Uses window.history.pushState for clean URLs without page reload
-- **Section Handling**: About (Home), Projects, Products, Services, Contact
+- **Section Handling**: Home, Projects, Products, Services, Contact
 - **Mobile Navigation**: Sliding dropdown with fade animation, full-width active states
 - **Dark Mode**: Inverted text colors for active navigation options
 
@@ -99,9 +99,12 @@ src/
 - **Performance**: Significantly reduced file sizes (7.3MB → 101KB desktop, 33KB mobile for largest image)
 
 ## Content Layout
-- **Newspaper Style**: Images float right with text wrapping around them
-- **Drop Cap**: Large capital letter for intro paragraph using TTF font
-- **Text Wrapping**: All text sections wrap around floated images
+- **Data-Driven**: All content loaded from JSON files for easy management
+- **Two Layout Types**: 
+  - **Two-Column Layout**: Home section with 1:2 ratio (heading:content)
+  - **Regular Layout**: Services, Contact, Products, Projects with h3 + p structure
+- **Responsive Design**: Mobile-first approach with single column on mobile
+- **Line Break Support**: Headings respect \n characters for multi-line titles
 - **Unselectable**: All content is non-selectable for clean interaction
 
 ## Dark Mode Support
@@ -115,31 +118,27 @@ src/
 - **Optimized Images**: Desktop (1200x500, 85% quality) and mobile (800x400, 70% quality) versions created
 - **Fonts**: TTF font added for drop cap styling
 
-## Recent Updates - Home Page Content Enhancement
+## Recent Updates - Data-Driven Content System
 
-### Two-Column Layout
-- **Desktop**: Home content split into 1:2 ratio columns
-- **Mobile**: Single column layout (responsive)
-- **First Column**: About section with keyword highlighting
-- **Second Column**: Three principles with dynamic text stretching
+### Content Restructuring
+- **JSON-Based Content**: All content moved to JSON files for easy management
+- **Home.json**: Contains sections with "two-columns" type and line break support
+- **Other Sections**: Services, Contact, Products, Projects use "regular" type with h3 + p structure
 
-### Dynamic Text Stretching Component
-- **StretchedText**: JavaScript component that dynamically calculates letter spacing
-- **Features**: Measures container width, calculates exact spacing needed, responsive on resize
-- **Font Size**: 95% of original size for better visual balance
-- **Spacing**: 70% of calculated spacing for natural appearance
+### Layout System
+- **Two-Column Layout**: Home section with 1:2 ratio (heading in left column, content in right column)
+- **Regular Layout**: Other sections with simple h3 heading and p content structure
+- **Responsive Design**: Two-column becomes single column on mobile devices
 
-### Keyword Highlighting System
-- **Home Section**: Multiple color highlights with different sizes
-- **Attention to Detail**: Green and orange highlights with size variations
-- **Colors Used**: Primary (reddish brown), Secondary (yellow), Tertiary (beige), Quaternary (green), Accent (orange)
-- **Sizes**: Small, medium, and large font sizes for visual hierarchy
-- **Three Important Principles**: Uses smaller primary styling (font-size-sm) for subtle emphasis
+### Line Break Support
+- **Multi-line Headings**: Headings support \n characters for line breaks
+- **Dynamic Rendering**: Content component splits headings by \n and inserts <br/> tags
+- **Plain Text**: Headings render as plain text without special styling
 
-### Content Updates
-- **About Text**: Updated with detailed agency description and three core principles
-- **Highlighted Keywords**: "The Agency", "full-stack app development", "QA", "project management", "digital consulting", "three important principles"
-- **Attention to Detail**: Highlighted "successful product", "seamless experience", "Holistic Tech"
+### Content Management
+- **Easy Updates**: Content can be updated by editing JSON files
+- **Consistent Structure**: All sections follow the same JSON pattern
+- **Type-Based Rendering**: Different layout types handled by Content component
 
 ## Notes
 - Minimal design approach - functionality first

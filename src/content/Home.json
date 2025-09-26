@@ -1,14 +1,24 @@
 {
   "sections": [
     {
-      "type": "text",
-      "heading": "Full-Stack Development",
+      "type": "two-columns",
+      "heading": "THE\nAGENCY",
       "content": "Founded in 2025, we provide digital services with three core principles: attention to detail, big picture perspective, and ethical business practices. We focus on full-stack development, QA, and project management to deliver seamless user experiences."
     },
     {
-      "type": "text", 
-      "heading": "Our Approach",
+      "type": "two-columns", 
+      "heading": "ATTENTION\nTO\nDETAIL",
       "content": "We ensure every aspect of your product reflects quality and purpose. From architecture planning to post-launch support, our team understands the full lifecycle and delivers meaningful, high-quality work that scales with your business."
+    },
+    {
+      "type": "two-columns", 
+      "heading": "THE\nBIG PICTURE\nPERSPECTIVE",
+      "content": "It is not enough to develop a product that matches the owner's vision. We are here to make sure that vision is a sound one, and that the product developed will have a future on the market once it is ready to be released. Therefore, we manage our projects and products well before any real engineering takes place and stay with the product during each phase of its lifecycle. During development our team doing the hands-on work truly understands the product architecture and the plans and goals that the app needs to fulfill, which helps them do more meaningful and higher-quality work. This also helps in setting up the product and the team for future scaling."    },
+    
+    {
+      "type": "two-columns", 
+      "heading": "ETHICAL\nBUSINESS",
+      "content": "We also make sure that the work we provide is highly ethical with regard to the environment, and human and animal rights. We like to see our work, and the way we delegate and do work, as a force for good in the world. We in no way support any form of involuntary oppression, exploitation, or non-ethical behavior, and choose our work and associates based on those qualities as well as their expertise."
     }
   ]
 }

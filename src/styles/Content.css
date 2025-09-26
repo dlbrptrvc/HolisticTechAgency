@@ -1,7 +1,7 @@
 /* Content Component Styles */
 
 .content {
-  padding: 2rem var(--spacing-left-padding);
+  padding: 2rem 1rem;
   max-width: 55vw;
   width: 55vw;
   overflow-x: hidden;
@@ -9,191 +9,71 @@
   margin: 0;
 }
 
-.content-intro {
-  font-family: var(--font-primary);
-  font-size: var(--font-size-sm);
-  margin-bottom: 2rem;
-  line-height: 1.6;
+/* Desktop min-width */
+@media (min-width: 769px) {
+  .content {
+    min-width: 1056px;
+  }
 }
 
-.drop-cap::first-letter {
-  float: left;
-  font-size: 4rem;
-  line-height: 3rem;
-  padding-right: 0.5rem;
-  padding-top: 0.25rem;
-  font-family: var(--font-aovel-ttf);
-  font-weight: var(--font-weight-bold);
+.content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.content-section {
-  margin-bottom: 2rem;
-}
-
-.content-heading {
-  font-family: var(--font-primary);
-  font-size: var(--font-size-md);
-  margin-bottom: 1rem;
-  margin-top: 2rem;
-  font-weight: normal;
-}
-
-.content-heading:first-child {
-  margin-top: 0;
-}
-
-.content-text {
-  font-family: var(--font-primary);
-  font-size: var(--font-size-sm);
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
-.content-text:last-child {
-  margin-bottom: 0;
-}
-
-.image-container {
-  float: right;
-  width: 250px;
-  margin: 0 0 1rem 1rem;
-  padding: 0.5rem;
-}
-
-.content-image {
+.section-container {
   width: 100%;
-  height: auto;
-  display: block;
 }
 
-.image-footnote {
-  font-family: var(--font-primary);
-  font-size: var(--font-size-xs);
-  font-style: italic;
-  margin-top: 0.5rem;
-  text-align: center;
-}
-
-/* Home content layout */
-.home-content {
+.two-columns {
   display: flex;
   gap: 2rem;
 }
 
-.home-column-1 {
+.column-left {
   flex: 1;
 }
 
-.home-column-2 {
+.column-right {
   flex: 2;
 }
 
-.home-about-text {
-  margin-bottom: 2rem;
-  text-align: left;
+.section-heading {
+  margin: 0;
 }
 
-.home-principle-text {
-  margin-bottom: 1rem;
-  text-align: right;
+.section-content {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  text-align: justify;
 }
 
-.home-principle-text-last {
-  text-align: right;
-}
-
-.home-about-heading {
-  text-align: left;
-  color: var(--color-secondary);
-  font-size: var(--font-size-lg);
-}
-
-.home-keyword-primary {
-  color: var(--color-primary);
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-bold);
-}
-
-.home-keyword-primary-smaller {
-  color: var(--color-primary);
-  font-size: 1.25rem;
-  font-weight: var(--font-weight-bold);
-}
-
-.home-keyword-accent {
-  color: var(--color-accent);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-bold);
-}
-
-.home-keyword-tertiary {
-  color: var(--color-tertiary);
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-bold);
-}
-
-.home-principle-heading {
-  color: var(--color-tertiary);
-  font-weight: 900 !important;
-  width: 100%;
-  text-align: right;
-  letter-spacing: 2px;
-}
-
-
-.home-principle-highlight-green {
-  color: var(--color-quaternary);
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-bold);
-}
-
-.home-principle-highlight-orange {
-  color: var(--color-accent);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-bold);
-}
 
 /* Mobile responsive */
 @media (max-width: 768px) {
   .content {
-    padding: 1.5rem var(--spacing-left-padding);
+    padding: 1.5rem 1rem;
     max-width: 100%;
     width: 100%;
   }
   
-  /* .content-title {
-    font-size: var(--font-size-lg);
-  } */
-  
-  .image-container {
-    float: none;
-    width: 100%;
-    margin: 1rem 0;
-  }
-  
-  /* Mobile: single column layout for home content */
-  .home-content {
+  .two-columns {
     display: block;
   }
   
-  .home-column-1,
-  .home-column-2 {
+  .column-left,
+  .column-right {
     flex: none;
   }
   
-  /* Mobile: justify text in second column */
-  .home-principle-text,
-  .home-principle-text-last {
-    text-align: justify;
+  .section-heading {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
   }
   
-  /* Mobile: capitalize headings in second column */
-  .home-principle-heading {
-    text-transform: uppercase;
-  }
-  
-  /* Mobile: make THE AGENCY smaller */
-  .home-about-text .home-keyword-primary:first-child {
-    font-size: 1.7rem !important;
+  .section-content {
+    text-align: left;
   }
 }

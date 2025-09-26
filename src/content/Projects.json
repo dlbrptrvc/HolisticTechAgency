@@ -1,4 +1,9 @@
 {
-  "title": "",
-  "content": ""
+  "sections": [
+    {
+      "type": "regular",
+      "heading": "",
+      "content": ""
+    }
+  ]
 }

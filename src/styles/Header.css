@@ -23,6 +23,13 @@
   user-select: none;
 }
 
+/* Desktop min-width */
+@media (min-width: 769px) {
+  .header {
+    min-width: 1056px;
+  }
+}
+
 .header:hover,
 .header:active,
 .header:focus {

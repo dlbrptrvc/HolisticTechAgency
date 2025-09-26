@@ -10,6 +10,13 @@
   max-width: none;
 }
 
+/* Fix for app container min-width */
+@media (min-width: 769px) {
+  .swipeable-images {
+    margin-left: calc(-50vw + 50% - (1056px - 55vw) / 2);
+  }
+}
+
 .images-container {
   position: relative;
   width: 100%;
